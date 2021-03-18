@@ -1,1 +1,52 @@
-<h1>Hallo</h1>
+<html>
+	<head>
+		<title>Tabelle bauen</title>
+			</head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<script>
+			"use strict";
+			function fWertetabelle() {
+			// Quellcode
+
+			var vAnzahl;
+			var vAusgabe;
+			var vX;
+			var vY;
+
+			// Start für x definieren
+			vX = 1;
+			// Wie viele Zeilen soll die Tabelle haben...
+			vAnzahl = document.getElementById("idAnzahl").value;
+
+			vAusgabe = "";
+			vAusgabe = vAusgabe + "<table border=1>";
+			vAusgabe = vAusgabe + "<tr><th>x</td><th>f(x)=x<sup>2</sup>+ 2x -10</td></tr>";
+
+			while (vX <=vAnzahl) {
+				
+				// Berechne Y
+				vY = vX*vX+ (2*vX)-10;
+				vAusgabe = vAusgabe + "<tr><td>" + vX + "</td><td>" + vY + "</td></tr>";
+				
+				// Erhöhe x um 1
+				vX = vX + 1;
+			}
+
+		
+			// Schließe die noch offene Tabelle...
+			vAusgabe = vAusgabe + "</table>";
+
+			document.getElementById("divAusgabe").innerHTML = vAusgabe;
+		}
+
+		</script>
+
+
+	<body>
+		<h1>Mathematische Funktion (Wertetabelle) </h1>
+        x läuft von 1 bis <input id="idAnzahl" type="text" value="20">
+		<button onClick="fWertetabelle();">Wertetabelle erzeugen!</button><br /><br />
+        <div id="divAusgabe">Button klicken!</div>
+	</body>
+</html>
+
